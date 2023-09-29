@@ -1,3 +1,15 @@
+import random
+
+
+def destination_divider(destinations):
+    global trucks
+    random.shuffle(destinations)
+    print(destinations)
+    for truck in trucks:
+        truck.append(destinations[:truck[1]])
+        destinations = destinations[truck[1]:]
+
+
 try:
     with open("input.txt", "r") as input_file:
         input_data = [line.strip() for line in input_file.readlines()]
@@ -8,14 +20,21 @@ except IOError:
 n = len(input_data[0].split(","))
 graph = []
 
-i = 0
-while i < n:
-    graph.append(input_data[0].split(","))
+for i in range(n):
+    line = input_data[0]
+    graph.append([int(x) if x.isnumeric() else float('inf') for x in line.split(",")])
     input_data.pop(0)
-    i += 1
-# print(graph)
-trucks = {}
+
+print(graph)
+trucks = []
 distance = 0
 for truck_data in input_data:
-    truck_name, capacity = truck_data.split("#")
-    trucks[truck_name] = capacity
+    trucks.append([int(x) if x.isnumeric() else x for x in truck_data.split("#")])
+print(trucks)
+
+destination_list = [x for x in range(1, n)]
+best_routes = []
+best_distance = float('inf')
+
+destination_divider(destination_list)
+print(trucks)

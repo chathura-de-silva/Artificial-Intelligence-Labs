@@ -3,6 +3,8 @@
 ## Assignment 1: Delivery Optimization
 
 Optimize delivery routes for a courier service within a city using the Hill-Climbing algorithm.
+<br>
+**Python version 3.8 Recommended.**
 
 
 <br>

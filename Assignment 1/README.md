@@ -34,3 +34,7 @@ Task in this assignment is to:
 truck_1#b,c
 truck_2#f,e,d
 52
+```
+
+## Recommended Python version
+*   Python 3.8
