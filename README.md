@@ -1,4 +1,17 @@
 # Assignment Repository
+<p align="center">
+    <picture>
+      <source 
+        srcset="./banner.png"
+        media="(prefers-color-scheme: dark)"
+      />
+      <img 
+        src="https://github.com/Chathura-De-Silva/Artificial-Intelligence-Labs/blob/master/banner.png" 
+        alt="Academease Preview"
+        width="800"
+       />
+    </picture>
+  </p>
 
 ## Assignment 1: Delivery Optimization
 

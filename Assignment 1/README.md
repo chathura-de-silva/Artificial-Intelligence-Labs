@@ -35,6 +35,15 @@ truck_1#b,c
 truck_2#f,e,d
 52
 ```
+## Implementation Details 
+*   Uncomment the print statements if there is any need to see the intermediate steps or to debug.
+*   Change the number of iterations and rename the "output.txt" to whatever required accordingly by changing,
+    ```python
+    # Change below parameters accordingly.
+    INDEX_NUMBER = 'output'
+    ITERATIONS = 10000
+    ```
+    in the main.py.
 ## Greedy Assumption
 *   The direct route between two destinations is the shortest root.
 ## Recommended Python version
