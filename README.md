@@ -1,4 +1,3 @@
-# Assignment Repository
 <p align="center">
     <picture>
       <source 
