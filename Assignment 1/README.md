@@ -35,6 +35,7 @@ truck_1#b,c
 truck_2#f,e,d
 52
 ```
-
+## Greedy Assumption
+*   The direct route between two destinations is the shortest root.
 ## Recommended Python version
 *   Python 3.8
