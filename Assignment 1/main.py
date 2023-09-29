@@ -1,6 +1,7 @@
 import random
 import copy
 
+INDEX_NUMBER = 'output'
 
 def destination_divider(destinations, solution):
     random.shuffle(destinations)
@@ -54,5 +55,15 @@ for i in range(10000):
     if total_distance < best_distance:
         best_distance = total_distance
         best_solution = current_solution
-        # print("solution :", [x[-1] for x in current_solution], "distance : ", total_distance)
+        print("solution :", [x[-1] for x in current_solution], "distance : ", total_distance)
+
+for truck in best_solution:
+    truck[-1] = [chr(x+97) for x in truck[-1]]
 print("Final answer :", best_solution, best_distance)
+
+try:
+    with open(f"{INDEX_NUMBER}.txt", "w") as output_file:
+        output_file.writelines(truck[0]+"#"+(",".join(truck[-1]))+"\n" for truck in best_solution)
+        output_file.write(str(best_distance))
+except IOError:
+    print(f"Error occurred while writing to the {INDEX_NUMBER}.txt!")
