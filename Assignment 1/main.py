@@ -131,6 +131,7 @@ try:
             # print("solution :", [x[-1] for x in local_optimum_solution], "distance : ", total_distance)# Uncomment
             # above line for debugging purposes
     for truck in best_solution:
+        truck[-1].pop(0)  # Removing the starting point from the route of each truck since its not expected in the final solution.
         truck[-1] = [chr(x + 97) for x in truck[-1]]  # Converting the destinations to their corresponding letters
     # print("Final answer :", best_solution, best_distance) # Uncomment for debugging purposes
 
