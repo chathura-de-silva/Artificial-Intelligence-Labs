@@ -44,7 +44,5 @@ truck_2#f,e,d
     ITERATIONS = 10000
     ```
     in the main.py.
-## Greedy Assumption
-*   The direct route between two destinations is the shortest root.
 ## Recommended Python version
 *   Python 3.8

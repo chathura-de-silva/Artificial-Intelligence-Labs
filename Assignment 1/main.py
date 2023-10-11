@@ -11,19 +11,31 @@ is randomising it."""
 
 
 def destination_divider(destinations, solution):
-    random.shuffle(destinations)
+    is_delivered = [False]*len(destinations)
     solution_copy = copy.deepcopy(solution)
     destinations_copy = destinations.copy()
-    for _truck in solution_copy:
-        _truck.append(destinations_copy[:_truck[1]])
-        destinations_copy = destinations_copy[_truck[1]:]
+    for truck in solution_copy:
+        truck_capacity = truck[1]
+        current_location = 0
+        truck.append([current_location]) # This initiates the route destination list with starting destination which is 0.
+        
+        i=0
+        while i < truck_capacity:
+            random_destination = random.choice(destinations_copy)
+            if current_location != random_destination: #Avoiding unnessacary duplication of visiting the same node already in being in it. Even without this line the algorithm should work technically.
+                truck[2].append(random_destination)
+                if is_delivered[random_destination-1]:
+                    i-=1
+                else:
+                    is_delivered[random_destination-1] = True
+                i+=1
+                destinations_copy.remove(random_destination) #Remove method removes only the first occurance. But here it is used without an ambiguity since we are sure that any destination is not being repeated in the list.
     return solution_copy
 
 
 """
 distance_counter() function takes a sequence of destinations and returns the total distance of the path. 
-The greedy assumption comes in to play here. We assume that all the indirect paths between two destinations
-are more distant than the direct path between them."""
+"""
 
 
 def distance_counter(destination_sequence):
