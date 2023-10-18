@@ -49,4 +49,4 @@ def get_state_utilities(epsilon, rewards):
         print(utilities,delta)
     return utilities
 
-print(get_state_utilities(0.1, [-0.1, -0.1, 1, -0.1, -0.1, -0.05]))
+print(get_state_utilities(0.01, [-0.1, -0.1, 1, -0.1, -0.1, -0.05]))
