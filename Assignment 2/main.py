@@ -26,12 +26,11 @@ def get_state_utilities(epsilon, rewards):
                 else:
                     return current_state + 1
             
-        if action > 3 or action < 0:
-            if action == 4:
-                return rewards[current_state] + old_utilities[current_state]
-            else:    
-                raise ValueError("Action must be between 0 and 4")
-        
+        if action > 4 or action < 0:                   
+            raise ValueError("Action must be between 0 and 4")
+        if action == 4:
+            return rewards[current_state] + old_utilities[current_state]
+
         side_state_1 = get_state(action-1 if action != 0 else 3, current_state)
         desired_state  = get_state(action, current_state)
         side_state_2 = get_state(action+1 if action != 3 else 0 , current_state)
@@ -47,4 +46,4 @@ def get_state_utilities(epsilon, rewards):
         print(utilities,delta)
     return utilities
 
-print(get_state_utilities(1, [-0.1, -0.1, 1, -0.1, -0.1, -0.05]))
+print(get_state_utilities(0.1, [-0.1, -0.1, 1, -0.1, -0.1, -0.05]))
