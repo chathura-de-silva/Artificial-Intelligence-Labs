@@ -1,6 +1,5 @@
 def get_state_utilities(epsilon, rewards):
     utilities = [0] * 6
-    utilities[2] = rewards[2]
     delta = epsilon + 1
     gamma = 0.999
     def q_star(current_state,action):
@@ -43,10 +42,11 @@ def get_state_utilities(epsilon, rewards):
         old_utilities = utilities[:]
         for current_state in range(len(rewards)):
             if current_state ==2:
+                utilities[2] = 1
                 continue
             utilities[current_state] = max(q_star(current_state,0), q_star(current_state,1), q_star(current_state,2), q_star(current_state,3), q_star(current_state,4))
             delta = max(delta, abs(old_utilities[current_state] - utilities[current_state]))
         print(utilities,delta)
     return utilities
 
-print(get_state_utilities(0.01, [-0.1, -0.1, 1, -0.1, -0.1, -0.05]))
+print(get_state_utilities(0.01, [-0.1, -0.1, 0, -0.1, -0.1, -0.05]))
