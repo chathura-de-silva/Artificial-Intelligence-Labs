@@ -30,12 +30,12 @@ def get_state_utilities(epsilon, rewards):
         if action > 4 or action < 0:                   
             raise ValueError("Action must be between 0 and 4")
         if action == 4:
-            return rewards[current_state] + old_utilities[current_state]
+            return rewards[current_state] + gamma * old_utilities[current_state]
 
         side_state_1 = get_state(action-1 if action != 0 else 3, current_state)
         desired_state  = get_state(action, current_state)
         side_state_2 = get_state(action+1 if action != 3 else 0 , current_state)
-        q_star_value = 0.05 * (rewards[side_state_1] + old_utilities[side_state_1]) + 0.05 * (rewards[side_state_2] + old_utilities[side_state_2]) + 0.9 * (rewards[desired_state] + old_utilities[desired_state])
+        q_star_value = 0.05 * (rewards[side_state_1] + gamma * old_utilities[side_state_1]) + 0.05 * (rewards[side_state_2] + gamma * old_utilities[side_state_2]) + 0.9 * (rewards[desired_state] + gamma * old_utilities[desired_state])
         return q_star_value
    
     while delta > epsilon * (1 - gamma) / gamma:
