@@ -2,7 +2,7 @@ def get_state_utilities(epsilon, rewards):
     utilities = [0] * 6
     utilities[2] = rewards[2]
     delta = epsilon + 1
-    
+    gamma = 0.999
     def q_star(current_state,action):
         
         def get_state(action,current_state):
@@ -38,7 +38,7 @@ def get_state_utilities(epsilon, rewards):
         q_star_value = 0.05 * (rewards[side_state_1] + old_utilities[side_state_1]) + 0.05 * (rewards[side_state_2] + old_utilities[side_state_2]) + 0.9 * (rewards[desired_state] + old_utilities[desired_state])
         return q_star_value
    
-    while delta > epsilon:
+    while delta > epsilon * (1 - gamma) / gamma:
         delta = 0 #check whethet this line is needed
         old_utilities = utilities[:]
         for current_state in range(len(rewards)):
