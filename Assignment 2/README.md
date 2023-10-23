@@ -14,7 +14,7 @@ succeeds with probability 1.
 *   The rewards associated with each state are
 R(1 : 6) = [−0.1, − 0.1, + 1, − 0.1, − 0.1, − 0.05] respectively and are also shown in figure 1.
 *   State 3 is the only terminal state.
-*   Goal is to calculating utilities and then deciding best policies for each state.
+*   Goal is calculating utilities and then deciding best policies for each state.
 
 Figure 1 :
 #### States
